@@ -53,6 +53,34 @@ router.post("/", async(req, res, next)=> {
 });
 
 
+/*edit a student's info*/
+router.put("/:id", async(req,res,next)=> {
+    try {
+	//collect and store the updated data
+        const {fname, lname, email, img, gpa} = req.body;
+	const obj = {
+	    firstName: fname,
+	    lastName: lname,
+	    email: email,
+	    imageURL: img,
+	    gpa: gpa
+	};
+
+	//find the student with the matching id
+	let student = await Student.findByPk(id);
+
+	//update the data
+	await student.set(obj);
+
+	const uStudent = await student.save();
+	res.status(201).send(uStudent);
+    }
+    catch(err) {
+	next(err);
+    }
+    
+
+
 /*removing a sudent by student id*/
 router.delete("/:id", async(req, res, next)=> {
     const id = req.params;
@@ -60,6 +88,8 @@ router.delete("/:id", async(req, res, next)=> {
 	const student = await Student.findByPk(id);
 
 	await student.destroy();
+
+	res.sendStatus(204);
     }
     catch(err) {
 	next(err);
