@@ -78,7 +78,7 @@ router.put("/:id", async(req,res,next)=> {
     catch(err) {
 	next(err);
     }
-    
+});
 
 
 /*removing a sudent by student id*/
@@ -96,5 +96,5 @@ router.delete("/:id", async(req, res, next)=> {
     }
 });
 
-module.exports = router;
 
+module.exports = router;
