@@ -33,14 +33,14 @@ router.get("/:id", async(req,res,next)=> {
 
 /*add a student to the database*/
 router.post("/", async(req, res, next)=> {
-    const {fname, lname, email, imageURL, gpa} = req.body;
+    const {firstName, lastName, studentEmail, imageUrl, studentgGPA} = req.body;
 
     const studObj = {
-	firstName: fname,
-	lastName: lname,
-	email: email,
-	imageUrl: imageURL,
-	gpa: gpa
+	    firstName: firstName,
+	    lastName: lastName,
+	    studentEmail: studentEmail,
+	    imageURL: imageURL,
+	    studentgGPA: studentgGPA
     };
 
     try {
@@ -57,13 +57,13 @@ router.post("/", async(req, res, next)=> {
 router.put("/:id", async(req,res,next)=> {
     try {
 	//collect and store the updated data
-        const {fname, lname, email, img, gpa} = req.body;
+    const {firstName, lastName, studentEmail, imageUrl, studentgGPA} = req.body;
 	const obj = {
-	    firstName: fname,
-	    lastName: lname,
-	    email: email,
-	    imageURL: img,
-	    gpa: gpa
+	    firstName: firstName,
+	    lastName: lastName,
+	    studentEmail: studentEmail,
+	    imageURL: imageURL,
+	    studentgGPA: studentgGPA
 	};
 
 	//find the student with the matching id
