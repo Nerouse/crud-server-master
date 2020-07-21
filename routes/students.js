@@ -40,7 +40,7 @@ router.post("/", async(req, res, next)=> {
 	    lastName: lastName,
 	    studentEmail: studentEmail,
 	    imageURL: imageURL,
-	    studentgGPA: studentgGPA
+	    studentGPA: studentGPA
     };
 
     try {
@@ -57,13 +57,13 @@ router.post("/", async(req, res, next)=> {
 router.put("/:id", async(req,res,next)=> {
     try {
 	//collect and store the updated data
-    const {firstName, lastName, studentEmail, imageUrl, studentgGPA} = req.body;
+    const {firstName, lastName, studentEmail, imageUrl, studentGPA} = req.body;
 	const obj = {
 	    firstName: firstName,
 	    lastName: lastName,
 	    studentEmail: studentEmail,
 	    imageURL: imageURL,
-	    studentgGPA: studentgGPA
+	    studentGPA: studentGPA
 	};
 
 	//find the student with the matching id
